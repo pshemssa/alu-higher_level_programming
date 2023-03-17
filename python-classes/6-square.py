@@ -1,94 +1,95 @@
 #!/usr/bin/python3
+"""creates class Square."""
 
 
 class Square:
-    """Square class."""
-
+    """ Square class defined
+        Attributes:
+            size (int): Size of square
+            position (tuple): position of space and new lines
+    """
     def __init__(self, size=0, position=(0, 0)):
-        """__init__ method that sets the size and position of square.
+        """initializes
         Args:
-            size (int): size of Square
-            position (tuple): poisition of Square
+            size (int): size
+            postion(tuple): postion
+        Returns:
+            None
         """
+
         self.size = size
         self.position = position
 
-    def area(self):
-        """Gets the area of the Square.
-        Returns:
-            Area of squre
-        """
-        return self.__size * self.__size
-
     @property
     def size(self):
-        """gets size of square."""
+        """
+        getter of size
+        Return:
+            Size of square
+        """
         return self.__size
 
     @size.setter
     def size(self, value):
-        """size setter  method that sets the size of square.
-        Args:
-            value (int): size of Square
-        Raises:
-            TypeError: If `value` is not an integer.
-            ValueError: If `value` is less than 0.
         """
-        if not isinstance(value, int):
+        Setter of size
+        Args:
+            value (int): size
+        Raises
+            TypeError: if size is not int
+            ValueError: size less than 0
+        Returns:
+            None
+        """
+        if type(value) != int:
             raise TypeError("size must be an integer")
-        if value < 0:
+        elif value < 0:
             raise ValueError("size must be >= 0")
-        self.__size = value
+        else:
+            self.__size = value
 
     @property
     def position(self):
-        """gets position of square."""
+        """
+        get postion attribute
+        """
         return self.__position
 
     @position.setter
     def position(self, value):
-        """position setter method that sets position of Square.
-        Args:
-            value (tuple): tuple of two positive integer coordinates
-        Raises:
-            TypeError: If `value` is not a tuple of two positive integers
         """
-        if not isinstance(value, tuple):
+            setter of position
+        Args:
+            value (tuple): position of the square in 2D space
+        Returns:
+            None
+        """
+        if len(value) != 2 or type(value) != tuple:
             raise TypeError("position must be a tuple of 2 positive integers")
-        elif len(value) != 2:
+        if type(value[0]) != int or value[0] < 0:
             raise TypeError("position must be a tuple of 2 positive integers")
-        elif not isinstance(value[0], int) or not isinstance(value[1], int):
+        if type(value[1]) != int or value[1] < 0:
             raise TypeError("position must be a tuple of 2 positive integers")
-        elif (value[0] < 0 or value[1] < 0):
-            raise TypeError("position must be a tuple of 2 positive integers")
-        else:
-            self.__position = value
+        self.__position = value
+
+    def area(self):
+        """
+        get area
+        Return:
+            area (int)
+        """
+        return self.__size ** 2
 
     def my_print(self):
-        """Prints a # representation of square based on size."""
-
-        if self.__size == 0:
+        """
+        print a square
+        Returns:
+            None
+        """
+        if self.size == 0:
             print()
         else:
-            for i in range(self.__position[1]):
-                print()
-            for j in range(self.__size):
-                print(' ' * self.__position[0], end='')
-                print('#' * self.__size)
-
-
-if __name__ == '__main__':
-    my_square_1 = Square(3)
-    my_square_1.my_print()
-
-    print("--")
-
-    my_square_2 = Square(3, (1, 1))
-    my_square_2.my_print()
-
-    print("--")
-
-    my_square_3 = Square(3, (3, 0))
-    my_square_3.my_print()
-
-    print("--")
+            print('\n'*self.__position[1], end='')
+            for i in range(self.__size):
+                print(' '*self.__position[0], end='')
+                print('#'*self.__size)
