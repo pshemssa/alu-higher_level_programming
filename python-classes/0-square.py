@@ -1,12 +1,9 @@
-#!/usr/bin/python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)')
+#!/usr/bin/python3
+"""A module for working with squares.
+"""
+
 
 class Square:
-    """An empty class Square."""
+    """Represents a 2D Polygon with 4 equal and perpendicular sides.
+    """
     pass
-
-
-if __name__ == '__main__':
-
-my_square = Square()
-print(type(my_square))
-print(my_square.__dict__)
