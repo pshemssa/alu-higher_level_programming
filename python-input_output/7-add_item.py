@@ -1,15 +1,23 @@
 #!/usr/bin/python3
-""" Load, add, save file module"""
-import os.path as path
-import sys
-save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
-load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 
-obj = []
-if path.exists("add_item.json"):
-    obj = load_from_json_file("add_item.json")
-obj = load_from_json_file("add_item.json")
-for i in sys.argv[1:]:
-    obj.append(i)
-obj.append(i)
-save_to_json_file(obj, "add_item.json")
+"""write a script that adds all arguments to a python lis"""
+
+"""write a script that adds all arguments to a python"""
+import json
+
+
+def save_to_json_file(my_obj, filename):
+    """comment function"""
+    with open(filename, 'w') as f:
+        json.dump(my_obj,f)
+def load_from_json_file(filename):
+    """comment function"""
+    with open(filename, 'r') as f:
+        return json.load(f)
+filename = "add_item.json"
+try:
+    items = load_from_json_file(filename)
+except:
+    items = []
+for arg in sys.argv[1:]:
+    items.append(arg)
