@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 """write a script that adds all arguments to a python"""
-
 import json
-
 
 def save_to_json_file(my_obj, filename):
     """comment function"""
