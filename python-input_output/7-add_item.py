@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 
 """write a script that adds all arguments to a python lis"""
-
 """write a script that adds all arguments to a python"""
 import json
 
