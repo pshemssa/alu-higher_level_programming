@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """this module defines a Rectangle subclass Square"""
-Rectangle = __import__('9-rectangle').Rectangle
+square = __import__('9-rectangle').square
 
 
-class Square(Rectangle):
+class Square(square):
     """Represent a square"""
 
     def __init__(self, size):
