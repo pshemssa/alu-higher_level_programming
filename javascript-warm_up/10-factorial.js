@@ -7,3 +7,4 @@ function factorial (a) {
   }
   
   console.log(factorial(parseInt(process.argv[2])));
+  
