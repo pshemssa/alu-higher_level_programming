@@ -1,11 +1,20 @@
 #!/usr/bin/node
-const dict = require('./101-data.js').dict;
-let newDict = {};
-for (let key in dict) {
-  if (newDict[dict[key]] === undefined) {
-    newDict[dict[key]] = [key];
-  } else {
-    newDict[dict[key]].push(key);
+
+const { dict } = require('./101-data');
+function computeUserIdsByOccurrence (dict) {
+  const userIdsByOccurrence = {};
+
+  for (const [userId, occurrence] of Object.entries(dict)) {
+    if (!(occurrence in userIdsByOccurrence)) {
+      userIdsByOccurrence[occurrence] = [];
+    }
+
+    userIdsByOccurrence[occurrence].push(userId);
   }
+
+  return userIdsByOccurrence;
 }
-console.log(newDict);
+
+const userIdsByOccurrence = computeUserIdsByOccurrence(dict);
+
+console.log(userIdsByOccurrence);
